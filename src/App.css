@@ -1,38 +1,174 @@
-.App {
+/*RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
   text-align: center;
+  font-family: fantasy;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-container {
+  width: 90vw;
+  max-width: 1000px;
+  min-height: 80vh;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 60% 45%;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-container {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 3;
+  border-right: 2px solid black;
+  background-color: whitesmoke;
+  padding: 1em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.result-container {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  border-right: 2px solid black;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  overflow: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.code-container {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 2;
+  border-right: 2px solid black;
+  background-color: darkslategrey;
+  color: whitesmoke;
+  padding: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+span {
+  max-width: 333px;
+  word-break: break-all;
+}
+
+input,
+select {
+  padding: 0 0.25em;
+  margin-left: 0.1em;
+  font-size: 16px;
+  border: 1px solid black;
+}
+
+input {
+  max-width: 90%;
+  color: inherit;
+}
+
+input[type="number"] {
+  max-width: 55px;
+}
+
+input[type="color"] {
+  border-radius: 1em;
+}
+
+input[type="text"] {
+  padding: 0.1em 0.5em;
+}
+
+/*HTML ATTRIBUTES*/
+.btn-type-dropdown {
+  position: relative;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+#other-attributes {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#other-attributes > * {
+  flex-basis: content;
+  padding: 0.2em;
+}
+
+#input-attributes {
+  max-width: 90%;
+  min-height: 50px;
+  margin: auto;
+  background-color: lightgrey;
+}
+
+.reset-attributes {
+  flex-basis: 100%;
+}
+
+.reset-attributes > div {
+  width: fit-content;
+  margin: auto;
+  padding: 0.25em 0.75em;
+  background-color: rgb(205, 247, 241);
+  border: 1px solid black;
+  border-radius: 1em;
+  cursor: pointer;
+}
+.reset-attributes > div:hover {
+  background-color: rgb(61, 61, 61);
+  color: lightgrey;
+}
+
+/*FONTS*/
+.font-dropdown {
+  display: none;
+}
+
+.font-dropdown-visible {
+  display: block;
+  background-color: rgb(229, 233, 230);
+  border: 1px solid black;
+  margin-left: 0.25em;
+  padding: 0.25em;
+}
+
+.font-before {
+  display: flex;
+  width: fit-content;
+  pointer-events: none;
+  position: relative;
+}
+
+.font-before::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  font-size: 1.5em;
+  content: "\f0dd";
+  cursor: pointer;
+  pointer-events: all;
+  position: absolute;
+  right: -0.5em;
+  top: -0.35em;
+}
+
+.font-before:hover::after {
+  text-shadow: 0 0 5px black;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
 }
